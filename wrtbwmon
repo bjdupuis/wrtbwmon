@@ -163,7 +163,7 @@ case ${1} in
         echo "<script type=\"text/javascript\">" >> ${3}
 
         echo "var values = new Array(" >> ${3}
-        sort -n /tmp/sorted_$$.tmp | while IFS=, read PEAKUSAGE_IN PEAKUSAGE_OUT OFFPEAKUSAGE_IN OFFPEAKUSAGE_OUT MAC LASTSEEN
+        cat /tmp/sorted_$$.tmp | while IFS=, read PEAKUSAGE_IN PEAKUSAGE_OUT OFFPEAKUSAGE_IN OFFPEAKUSAGE_OUT MAC LASTSEEN
         do
                 echo "new Array(" >> ${3}
                 USER=$(grep "${MAC}" "${USERSFILE}" | cut -f4 -s -d ' ' )
